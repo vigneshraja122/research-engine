@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -20,9 +21,24 @@ export default function Home() {
             placeholder="Start your first message..."
           ></Input>
           <div className="flex items-center justify-end w-full md:justify-end gap-4">
-            <button className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#f0e9e1]">
-              <Paperclip />
-            </button>
+            <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#f0e9e1]">
+              <input
+                type="file"
+                accept="application/pdf"
+                style={{ display: "none" }}
+                className="file-input"
+              />
+              <Button
+                onClick={() =>
+                  document
+                    .querySelector<HTMLInputElement>(".file-input")
+                    ?.click()
+                }
+                variant="link"
+              >
+                <Paperclip />
+              </Button>
+            </div>
             <Button className="bg-[#a65a03] hover:bg-[#784102]">
               Start chat
               <SendHorizontal />
