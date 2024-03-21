@@ -7,33 +7,15 @@ export default function Search({
   searchParams: { [key: string]: string };
 }) {
   const question = searchParams.q;
-  const [expanded, setExpanded] = useState(false);
-
-  const toggleExpanded = () => {
-    setExpanded(!expanded);
-  };
 
   return (
     <div className="w-full flex flex-col items-center bg-[#f0ede8]">
       <div className="w-full h-20"></div>
-      <div className="w-[70%] space-y-4">
-        <div className="flex items-center bg-[#e3d6c9] w-[70%] rounded-xl">
-          <h1
-            className={`text-xl font-sans rounded-lg  p-1 w-[90%] cursor-pointer ${
-              expanded ? "" : "truncate"
-            }`}
-            onClick={toggleExpanded}
-          >
+      <div className="md:w-[70%] w-[95%] space-y-4">
+        <div className="">
+          <h1 className="text-xl font-sans rounded-lg p-4 md:p-2 w-full cursor-pointer flex items-center bg-[#faf1da] text-justify">
             {question}
           </h1>
-          {!expanded && (
-            <p
-              className="text-blue-500 cursor-pointer text-xs mt-2"
-              onClick={toggleExpanded}
-            >
-              Read more
-            </p>
-          )}
         </div>
         <div className="w-full h-full border rounded-lg flex justify-center items-center bg-gray-50">
           <p className="w-[95%] p-2">
