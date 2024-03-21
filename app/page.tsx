@@ -1,9 +1,5 @@
-"use client"
-import Image from "next/image";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Paperclip } from "lucide-react";
-import { SendHorizontal } from "lucide-react";
+
+import LandingInput from "./components/landinginput";
 
 export default function Home() {
   return (
@@ -15,36 +11,7 @@ export default function Home() {
         <span className="font-serif text-5xl md:text-6xl">
           Welcome, vignesh
         </span>
-        <div className="w-[90%] md:w-[70%] md:h-14 h-24 border border-black rounded-lg flex md:flex-row flex-col items-center p-2 bg-white">
-          <Input
-            className="w-full md:w-[80%]"
-            placeholder="Start your first message..."
-          ></Input>
-          <div className="flex items-center justify-end w-full md:justify-end gap-4">
-            <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#f0e9e1]">
-              <input
-                type="file"
-                accept="application/pdf"
-                style={{ display: "none" }}
-                className="file-input"
-              />
-              <Button
-                onClick={() =>
-                  document
-                    .querySelector<HTMLInputElement>(".file-input")
-                    ?.click()
-                }
-                variant="link"
-              >
-                <Paperclip />
-              </Button>
-            </div>
-            <Button className="bg-[#a65a03] hover:bg-[#784102]">
-              Start chat
-              <SendHorizontal />
-            </Button>
-          </div>
-        </div>
+        <LandingInput />
       </div>
     </div>
   );
